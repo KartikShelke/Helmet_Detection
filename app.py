@@ -3,7 +3,6 @@ from PIL import Image
 import numpy as np
 import onnxruntime as ort
 import pytesseract
-import cv2
 import re
 
 helmet_model_path = "hemletYoloV8.onnx"
@@ -49,11 +48,10 @@ if uploaded_file:
     st.subheader("Raw Plate Model Output")
     st.write(plate_output)
 
-    # OCR using pytesseract
-    img_np = np.array(image)
-    gray = cv2.cvtColor(img_np, cv2.COLOR_BGR2GRAY)
-
+    # ---- OCR without OpenCV ----
+    gray = image.convert("L")  # Convert PIL image to grayscale
     ocr_text = pytesseract.image_to_string(gray)
+
     plate = format_plate(ocr_text)
 
     st.subheader("Recognized Plate Number")
