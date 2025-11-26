@@ -4,4 +4,3 @@ Pillow
 numpy
 opencv-python
 pytesseract
-python-dotenv
