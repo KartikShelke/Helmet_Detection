@@ -2,4 +2,6 @@ streamlit
 onnxruntime
 Pillow
 numpy
-tessdot
+opencv-python
+pytesseract
+python-dotenv
