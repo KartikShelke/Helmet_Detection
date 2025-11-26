@@ -1,0 +1,6 @@
+train: Helmet_Dataset/train
+val: Helmet_Dataset/valid
+test: Helmet_Dataset/test
+
+nc: 1  # number of classes
+names: ['helmet']
