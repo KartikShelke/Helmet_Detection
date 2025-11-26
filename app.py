@@ -2,7 +2,8 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import onnxruntime as ort
-from tessdot import TessOCR
+import pytesseract
+import cv2
 import re
 
 helmet_model_path = "hemletYoloV8.onnx"
@@ -10,8 +11,6 @@ plate_model_path = "license_plate_detector.onnx"
 
 helmet_session = ort.InferenceSession(helmet_model_path)
 plate_session = ort.InferenceSession(plate_model_path)
-
-ocr = TessOCR()
 
 def preprocess(img):
     img = img.resize((640, 640))
@@ -50,10 +49,11 @@ if uploaded_file:
     st.subheader("Raw Plate Model Output")
     st.write(plate_output)
 
-    # OCR using tessdot
+    # OCR using pytesseract
     img_np = np.array(image)
-    ocr_text = "".join([res["text"] for res in ocr.ocr(img_np)])
+    gray = cv2.cvtColor(img_np, cv2.COLOR_BGR2GRAY)
 
+    ocr_text = pytesseract.image_to_string(gray)
     plate = format_plate(ocr_text)
 
     st.subheader("Recognized Plate Number")
