@@ -1,10 +1,7 @@
-streamlit
-opencv-python-headless==4.9.0.80
-pandas
-ultralytics
-easyocr
-torch
+ultralytics==8.0.20
 numpy
 Pillow
-scikit-learn
-openpyxl
+streamlit
+easyocr
+torch
+torchvision
