@@ -1,5 +1,5 @@
 streamlit
+onnxruntime
 Pillow
 numpy
-onnxruntime
-easyocr
+tessdot
