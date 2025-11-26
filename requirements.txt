@@ -1,7 +1,5 @@
-ultralytics==8.0.20
-numpy
-Pillow
 streamlit
+Pillow
+numpy
+onnxruntime
 easyocr
-torch
-torchvision
