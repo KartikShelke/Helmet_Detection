@@ -6,8 +6,8 @@ import numpy as np
 # ------------------------------
 # Load both YOLO models
 # ------------------------------
-helmet_model_path = "hemletYoloV8.pt"
-plate_model_path = "license_plate_detector.pt"
+helmet_model_path = "hemletYoloV8.onnx"
+plate_model_path = "license_plate_detector.onnx"
 
 helmet_model = YOLO(helmet_model_path)
 plate_model = YOLO(plate_model_path)
